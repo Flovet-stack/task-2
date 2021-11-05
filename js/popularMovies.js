@@ -22,7 +22,7 @@ const popularMovies = [
 const popolar = document.getElementById("popular");
 // fetch result for every element in the popularMovies array
 popularMovies.forEach((movie) => {
-  fetch("http://www.omdbapi.com/?apikey=db3d0611&t=" + encodeURI(movie))
+  fetch("https://www.omdbapi.com/?apikey=db3d0611&t=" + encodeURI(movie))
     .then((response) => {
       return response.json();
     })
@@ -61,7 +61,7 @@ viewDetailsBtns = Array.from(viewDetailsBtns);
 const showDetails = () => {
   const link = window.event.target.getAttribute("data-link");
   //run search
-  fetch("http://www.omdbapi.com/?apikey=db3d0611&t=" + encodeURI(link))
+  fetch("https://www.omdbapi.com/?apikey=db3d0611&t=" + encodeURI(link))
     .then((response) => {
       return response.json();
     })

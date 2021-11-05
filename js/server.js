@@ -20,7 +20,7 @@ searchForm.addEventListener("submit", (e) => {
   } else {
     //run search
     fetch(
-      "http://www.omdbapi.com/?apikey=db3d0611&t=" + encodeURI(search.value)
+      "https://www.omdbapi.com/?apikey=db3d0611&t=" + encodeURI(search.value)
     )
       .then((response) => {
         return response.json();
