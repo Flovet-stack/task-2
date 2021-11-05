@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Filmio</title>
+    <link rel="stylesheet" href="scss/style.css">
+</head>
+<body class="dark">
+    <header>
+        <div class="con">
+            <div class="logo">Filmio</div>
+            <div class="header-right">
+                <div class="theme-toggler">
+                    <div class="sub"></div>
+                </div>
+                <div class="actions">
+                    <button class="btn btn-primary">Register</button>
+                    <button class="btn btn-secondary">Login</button>
+                </div>
+                <div class="user">
+                    <div class="button">
+                        <div class="initials">jd</div>
+                        <div class="name">John Doe</div>
+                    </div>
+                    <div class="menu">
+                        <ul>
+                            <li class="bookmarks">Bookmarks</li>
+                            <li class="logout">Logout</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <div class="con">
+            <h1>Welcome to Filmio</h1>
+            <div class="search-con">
+                <form action="" id="searchForm">
+                    <input type="text" name="search" id="search" placeholder="Search for a movie">
+                    <button type="submit"><span class="loader"></span></button>
+                </form>
+                <p class="message"></p>
+                <div class="results">
+                    <div class="sub">
+                        <div class="result">
+                            <img src="./img/photo4.png" alt="">
+                            <p>This is a search result</p>
+                        </div>
+                        <div class="result">
+                            <img src="./img/photo4.png" alt="">
+                            <p>This is a search result</p>
+                        </div>
+                        <div class="result">
+                            <img src="./img/photo4.png" alt="">
+                            <p>This is a search result</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav id="nav">
+                <ul>
+                    <li class="btn btn-primary">Popular</li>
+                    <li class="btn btn-primary">Bookmarks</li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+    <div class="con">
+        <section id="display">
+            <div class="popular-con">
+                <div class="heading">Search results</div>
+                <div class="popular" id="bookmarks"></div>
+                <div class="details" id="details">
+                    <div class="top">
+                        <div class="img-con">
+                            <img class="movie-cover" src="" alt="">
+                            <div class="btn btn-secondary">Bookmark this movie</div>
+                        </div>
+                        <div class="info">
+                            <div class="movie-title">Movie title goes here</div> <span class="movie-type"></span>
+                            <h2 class="movie-rating"></h2>
+                            <p class="movie-year">2020</p>
+                            <p class="movie-cats"></p>
+                            <p class="movie-plot">plot</p>
+                            <div class="actors">
+                                <h4>Cast</h4>
+                                <ul>
+                                </ul>
+                            </div>
+                            <div class="more-details">
+                                <div class="detail"><span>author:</span><div id="author"></div></div>
+                                <div class="detail"><span>release date:</span><div id="release-date"></div></div>
+                                <div class="detail"><span>runtime:</span><div id="runtime"></div></div>
+                                <div class="detail"><span>awards:</span><div id="awards"></div></div>
+                                <div class="detail"><span>country:</span><div id="country"></div></div>
+                                <div class="detail"><span>director:</span><div id="director"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="heading">Popular Movies</div>
+                <div class="popular" id="popular"></div>
+            </div>
+
+        </section>
+
+        <footer>&copy; Copyright of flovet-stack 2021</footer>
+    </div>
+
+
+    <script src="/js/server.js"></script>
+    <script src="/js/popularMovies.js"></script>
+</body>
+</html>
