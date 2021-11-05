@@ -63,9 +63,12 @@ const showDetails = () => {
   //run search
   fetch("https://www.omdbapi.com/?apikey=db3d0611&t=" + encodeURI(link))
     .then((response) => {
+      const details = document.getElementById('details');
+      details.style.display = "block"
       return response.json();
     })
     .then((result) => {
+      bookmarkCon.style.display = "none";
       loader.classList.remove("searching"); // stop loader after request
 
       // populating the template

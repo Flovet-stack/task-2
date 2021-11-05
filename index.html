@@ -39,7 +39,7 @@
         <div class="con">
             <h1>Welcome to Filmio</h1>
             <div class="search-con">
-                <form action="" id="searchForm">
+                <form id="searchForm">
                     <input type="text" name="search" id="search" placeholder="Search for a movie">
                     <button type="submit"><span class="loader"></span></button>
                 </form>
@@ -63,8 +63,8 @@
             </div>
             <nav id="nav">
                 <ul>
-                    <li class="btn btn-primary">Popular</li>
-                    <li class="btn btn-primary">Bookmarks</li>
+                    <li class=""><a href="#popular" class="btn btn-primary">Popular</a></li>
+                    <li onclick="showBookmarks()" class="btn btn-primary">Bookmarks</li>
                 </ul>
             </nav>
         </div>
@@ -73,13 +73,18 @@
     <div class="con">
         <section id="display">
             <div class="popular-con">
-                <div class="heading">Search results</div>
+                <div class="bookmark-con">
+                    <div class="heading">Your Bookmarks</div>
+                    <div class="popular" id="bookmarks"></div>
+                </div>
                 <div class="popular" id="bookmarks"></div>
                 <div class="details" id="details">
+                    <div class="heading">Search results</div>
                     <div class="top">
                         <div class="img-con">
                             <img class="movie-cover" src="/" alt="">
-                            <div class="btn btn-secondary">Bookmark this movie</div>
+                            <div class="btn btn-secondary" id="bookmark">Bookmark this movie</div>
+                            <div class="movie-message"></div>
                         </div>
                         <div class="info">
                             <div class="movie-title">Movie title goes here</div> <span class="movie-type"></span>

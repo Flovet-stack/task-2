@@ -432,9 +432,16 @@ body.dark {
                     row-gap: 2rem;
                 }
             }
+            .bookmark-con {
+                display: none;
+            }
+            #bookmarks {
+                margin-bottom: 2em;
+            }
             .details {
                 color: $white;
                 margin-bottom: 2rem;
+                display: none;
                 .top {
                     @include for-tablet {
                         display: grid;
@@ -470,6 +477,10 @@ body.dark {
                             width: 100%;
                             text-align: center;
                             padding: .7rem 0;
+                        }
+                        .movie-message {
+                            color: $white;
+                            display: none;
                         }
                     }
                     .info {

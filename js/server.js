@@ -2,6 +2,9 @@ const search = document.getElementById("search");
 const searchForm = document.getElementById("searchForm");
 const loader = document.querySelector(".loader");
 const message = document.querySelector(".message");
+const movieMessage = document.querySelector(".movie-message");
+const bookmarkCon = document.querySelector(".bookmark-con");
+const details = document.getElementById("details");
 
 let state = {
   // default state
@@ -11,6 +14,7 @@ searchForm.addEventListener("submit", (e) => {
   e.preventDefault();
   message.style.display = "none";
   loader.classList.add("searching");
+  bookmarkCon.style.display = "none";
 
   // validate form
   if (!search.value) {
@@ -26,7 +30,6 @@ searchForm.addEventListener("submit", (e) => {
         return response.json();
       })
       .then((result) => {
-        console.log(result);
         loader.classList.remove("searching"); // stop loader after request
 
         // populating the template
@@ -44,7 +47,7 @@ searchForm.addEventListener("submit", (e) => {
         const director = document.getElementById("director");
         const movieRating = document.querySelector(".movie-rating");
         const movieCast = document.querySelector(".actors ul");
-
+        details.style.display = "block";
         movieTitle.innerHTML = result.Title;
         movieYear.innerHTML = result.Year;
         moviePlot.innerHTML = result.Plot;
@@ -77,4 +80,59 @@ searchForm.addEventListener("submit", (e) => {
   }
 });
 
+// bookmarking a movie
+bookmarks = [];
 
+bookmark.addEventListener("click", (name) => {
+  const movieTitle = document.querySelector(".movie-title");
+  name = movieTitle.innerText;
+  movieMessage.style.display = "none";
+  bookmarks = JSON.parse(localStorage.getItem("bookmarks"));
+  // check if movie has already been bookmarked
+  if (bookmarks.indexOf(name) > -1) {
+    bookmarks.push(name);
+
+    movieMessage.innerHTML = "This movie has already been bookmarked";
+    movieMessage.style.display = "block";
+  } else {
+    bookmarks.push(name);
+    localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+  }
+});
+
+const showBookmarks = () => {
+  details.style.display = 'none';
+  bookmarkCon.style.display = 'block';
+  JSON.parse(localStorage.getItem('bookmarks')).forEach((movie) => {
+    fetch("https://www.omdbapi.com/?apikey=db3d0611&t=" + encodeURI(movie))
+      .then((response) => {
+        return response.json();
+      })
+      .then((result) => {
+        // console.log(result);
+        let movieCard = `
+                      <div class="movie-card">
+                          <div class="img-con">
+                              <img src="${result.Poster}" alt="">
+                              <div class="overlay">
+                                  <div>
+                                      <p>${result.imdbRating} / 10</p>
+                                      <div class="genres">${result.Genre}</div>
+                                      <a href="#details" onclick="showDetails()" data-link="${result.Title}" class="btn btn-primary view-details">View Details</a>
+                                  </div>
+                              </div>
+                              <div class="bookmark"></div>
+                          </div>
+                          <div class="info">
+                              <div class="name">${result.Title}</div>
+                              <div class="date">${result.Year}</div>
+                              <div class="resolutions">
+                                  <div class="pill">${result.Type}</div>
+                              </div>
+                          </div>
+                      </div>
+                      `;
+        document.getElementById('bookmarks').insertAdjacentHTML("beforeend", movieCard); //appendmovie cards to template
+      });
+  });
+};

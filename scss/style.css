@@ -582,9 +582,18 @@ body.dark #display .popular-con .popular {
   }
 }
 
+body.dark #display .popular-con .bookmark-con {
+  display: none;
+}
+
+body.dark #display .popular-con #bookmarks {
+  margin-bottom: 2em;
+}
+
 body.dark #display .popular-con .details {
   color: #fff;
   margin-bottom: 2rem;
+  display: none;
 }
 
 @media screen and (min-width: 768px) {
@@ -639,6 +648,11 @@ body.dark #display .popular-con .details .top .img-con .btn {
   width: 100%;
   text-align: center;
   padding: .7rem 0;
+}
+
+body.dark #display .popular-con .details .top .img-con .movie-message {
+  color: #fff;
+  display: none;
 }
 
 body.dark #display .popular-con .details .top .info {
